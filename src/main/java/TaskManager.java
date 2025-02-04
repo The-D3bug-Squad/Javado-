@@ -1,18 +1,22 @@
-import java.util.List;
+import java.util.*;
 
 public class TaskManager {
     private List<String> tasks; // hint: will change in iteration 3
 
-    public TaskManager() {
-        // Initialize tasks list
+    public TaskManager()
+    {
+        tasks = new ArrayList<>(List.of());
+//        String[] newlist = {};  this is what i know
+    };
+
+    public void addTask(String task)
+    {
+        tasks.add(task);
     }
 
-    public void addTask(String task) {
-        throw new UnsupportedOperationException("Implement this method!");
-    }
-
-    public List<String> listTasks() {
-        throw new UnsupportedOperationException("Implement this method!");
+    public List<String> listTasks()
+    {
+        return tasks;
     }
 
     public void deleteTask(String task){

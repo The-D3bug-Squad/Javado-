@@ -6,7 +6,7 @@ public class TaskManager {
 
     public TaskManager() {
         // Initialize tasks list
-        List<String> tasks = new ArrayList<>();
+        tasks = new ArrayList<>();
     }
 
     public void addTask(String task) {
@@ -16,7 +16,7 @@ public class TaskManager {
 
     public List<String> listTasks() {
         //throw new UnsupportedOperationException("Implement this method!");
-        return this.tasks;
+        return tasks;
     }
 
     public void deleteTask(String task){

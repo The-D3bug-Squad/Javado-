@@ -6,7 +6,7 @@ public class TaskManager {
 
     public TaskManager() {
         // Initialize tasks list
-        tasks = new ArrayList<>();
+        this.tasks = new ArrayList<>();
         //return this.tasks;
     }
 

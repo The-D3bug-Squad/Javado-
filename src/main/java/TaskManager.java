@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ArrayList;
 
 
 public class TaskManager {
@@ -8,6 +9,7 @@ public class TaskManager {
 
     public TaskManager() {
         // Initialize tasks list
+
         this.tasks = new ArrayList<>();
     }
 
@@ -17,6 +19,7 @@ public class TaskManager {
 
     public List<String> listTasks() {
         return tasks;
+
     }
 
 

@@ -1,23 +1,24 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TaskManager {
     private List<String> tasks; // hint: will change in iteration 3
 
-    public TaskManager()
-    {
-        tasks = new ArrayList<>(List.of());
-//        String[] newlist = {};  this is what i know
-    };
+    public TaskManager() {
+        // Initialize tasks list
 
-    public void addTask(String task)
-    {
+        this.tasks = new ArrayList<>();
+    }
+
+    public void addTask(String task) {
         tasks.add(task);
     }
 
-    public List<String> listTasks()
-    {
+    public List<String> listTasks() {
         return tasks;
+
     }
+
 
     public void deleteTask(String task){
 //        leave for iteration 4

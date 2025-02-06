@@ -11,7 +11,7 @@ public class TaskManager {
 
     public void addTask(String task)
     {
-        tasks.add(task);
+        this.tasks.add(task);
     }
 
     public List<String> listTasks()

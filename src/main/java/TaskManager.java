@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class TaskManager {
-    private List<List<String>> tasks; // hint: will change in iteration 3
+    private List<String> tasks; // hint: will change in iteration 3
 
     public TaskManager() {
         // Initialize tasks list
@@ -11,10 +10,10 @@ public class TaskManager {
     }
 
     public void addTask(String task) {
-        tasks.add(Collections.singletonList(task));
+        tasks.add(task);
     }
 
-    public List<List<String>> listTasks() {
+    public List<String> listTasks() {
         return tasks;
     }
 

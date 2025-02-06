@@ -1,18 +1,21 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TaskManager {
-    private List<String> tasks; // hint: will change in iteration 3
+    private List<List<String>> tasks; // hint: will change in iteration 3
 
     public TaskManager() {
         // Initialize tasks list
+        tasks = new ArrayList<>();
     }
 
     public void addTask(String task) {
-        throw new UnsupportedOperationException("Implement this method!");
+        tasks.add(Collections.singletonList(task));
     }
 
-    public List<String> listTasks() {
-        throw new UnsupportedOperationException("Implement this method!");
+    public List<List<String>> listTasks() {
+        return tasks;
     }
 
     public void deleteTask(String task){

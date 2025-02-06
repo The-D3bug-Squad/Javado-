@@ -16,7 +16,7 @@ public class TaskManager {
 
     public List<String> listTasks() {
         //throw new UnsupportedOperationException("Implement this method!");
-        return new ArrayList<>(tasks);
+        return this.tasks;
     }
 
     public void deleteTask(String task){

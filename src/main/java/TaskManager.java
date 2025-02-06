@@ -1,12 +1,14 @@
+
+import java.util.List;
 import java.util.ArrayList;
-import java.util.Arrays;
+
+
 
 public class TaskManager {
     private List<String> tasks; // hint: will change in iteration 3
 
     public TaskManager() {
         // Initialize tasks list
-
         this.tasks = new ArrayList<>();
     }
 
@@ -18,7 +20,6 @@ public class TaskManager {
         return tasks;
 
     }
-
 
     public void deleteTask(String task){
 //        leave for iteration 4

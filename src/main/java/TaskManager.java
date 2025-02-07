@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +8,7 @@ public class TaskManager {
     public TaskManager() {
         // Initialize tasks list
         tasks = new ArrayList<>();
+        this.readTasks();
     }
 
     public void addTask(String task) {
@@ -23,5 +25,42 @@ public class TaskManager {
 
     public void exit() {
         // leave for iteration 2
+        this.saveTasks();
+    }
+    public void readTasks(){
+        String filePath = "example.csv";
+        String line;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            // Read data rows line by line
+            while ((line = reader.readLine()) != null) {
+
+                String[] data = line.split(",");
+
+                tasks.add(data[0]);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveTasks() {
+
+        String filePath = "example.csv";
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+
+            for (String task : tasks) {
+                // Write data rows
+                writer.write(String.join(",", task));
+                writer.newLine();
+            }
+
+            System.out.println("CSV file created successfully.");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

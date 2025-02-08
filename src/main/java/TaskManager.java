@@ -28,11 +28,11 @@ public class TaskManager {
         this.saveTasks();
     }
     public void readTasks(){
-        String filePath = "example.csv";
+        String filePath = "data.csv";
         String line;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            // Read data rows line by line
+            
             while ((line = reader.readLine()) != null) {
 
                 String[] data = line.split(",");
@@ -46,12 +46,12 @@ public class TaskManager {
 
     public void saveTasks() {
 
-        String filePath = "example.csv";
+        String filePath = "data.csv";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
 
             for (String task : tasks) {
-                // Write data rows
+                
                 writer.write(String.join(",", task));
                 writer.newLine();
             }

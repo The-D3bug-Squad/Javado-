@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
 
 public class TaskManager {
     private List<String> tasks; // hint: will change in iteration 3
@@ -27,5 +29,15 @@ public class TaskManager {
 
     public void exit() {
         // leave for iteration 2
+        try (FileWriter file = new FileWriter("tasks.txt");BufferedWriter bfile = new BufferedWriter(file)) {
+            for (String task : tasks){
+                bfile.write(task);
+                bfile.newLine();
+            }
+        } catch (Exception e) {
+            //e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
     }
 }

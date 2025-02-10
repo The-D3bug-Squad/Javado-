@@ -5,25 +5,27 @@ public class TaskManager {
 
     public TaskManager()
     {
-        tasks = new ArrayList<>(List.of());
+        this.tasks = new ArrayList<>(List.of());
 //        String[] newlist = {};  this is what i know
     };
 
     public void addTask(String task)
     {
-        tasks.add(task);
+        this.tasks.add(task);
     }
 
     public List<String> listTasks()
     {
-        return tasks;
+        return this.tasks;
     }
 
     public void deleteTask(String task){
 //        leave for iteration 4
+        this.tasks.remove(String.valueOf(task));
     }
 
     public void exit() {
         // leave for iteration 2
+
     }
 }

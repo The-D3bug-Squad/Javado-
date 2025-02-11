@@ -1,7 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
 import java.io.IOException;
-import java.io.FileReader;
 import  java.io.FileWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,13 +9,13 @@ import java.util.Scanner;
 
 
 public class TaskManager {
-    private List<String> tasks; // hint: will change in iteration 3
-
+    List<String> tasks; // hint: will change in iteration 3
+    final String nameOfFile = "tasks.csv";
     public TaskManager() {
         // Initialize tasks list
         tasks = new ArrayList<>();
         try {
-            File file = new File("Tasks.txt");
+            File file = new File(nameOfFile);
             Scanner scanner =new Scanner(file);
 
             while(scanner.hasNextLine()){
@@ -27,16 +26,20 @@ public class TaskManager {
             System.out.println("File not found");
 
         }
+        try {
+            FileWriter writer = new FileWriter(nameOfFile);
+            writer.close();
+        }catch (IOException e){
+            System.out.println("error creating .csv");
+        }
 
     }
 
     public void addTask(String task) {
-       // throw new UnsupportedOperationException("Implement this method!");
         this.tasks.add(task);
     }
 
     public List<String> listTasks() {
-        //throw new UnsupportedOperationException("Implement this method!");
         return tasks;
     }
 
@@ -46,7 +49,7 @@ public class TaskManager {
 
     public void exit() {
         try {
-            FileWriter writer = new FileWriter("Tasks.txt");
+            FileWriter writer = new FileWriter(nameOfFile);
             for (String task : tasks) {
                 writer.write(task+"\n");
 
@@ -54,7 +57,7 @@ public class TaskManager {
 
             writer.close();
         }catch (IOException e){
-            System.out.println("Error writing file .txt");
+            System.out.println("Error writing file .csv");
         }
 //        Runtime.getRuntime().halt(0);
     }

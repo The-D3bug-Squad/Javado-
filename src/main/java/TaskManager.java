@@ -1,14 +1,27 @@
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.IOException;
 
 public class TaskManager {
     private List<String> tasks; // hint: will change in iteration 3
+    public File file;
 
     public TaskManager() {
         // Initialize tasks list
         this.tasks = new ArrayList<>();
-    }
 
+    public File createFile() {
+        try{
+            File file1 = new File("tasks.csv");
+            if (file1.createNewFile()){
+                return file1;
+            } else {
+                return null;
+            }
+        }
+
+    }
     public void addTask(String task) {
         tasks.add(task);
     }

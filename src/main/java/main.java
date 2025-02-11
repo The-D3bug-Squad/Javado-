@@ -1,8 +1,11 @@
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 
 public class main {
-    public static void main(String[] args) {
+    private static final String TEST_FILE = "tasks.csv";
+    public static void main(String[] args) throws IOException {
         TaskManager manager = new TaskManager();
         Scanner scanner = new Scanner(System.in);
 

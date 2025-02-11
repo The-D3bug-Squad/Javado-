@@ -29,15 +29,18 @@ public class TaskManager {
 
     public void exit() {
         // leave for iteration 2
-        try (FileWriter file = new FileWriter("tasks.txt");BufferedWriter bfile = new BufferedWriter(file)) {
-            for (String task : tasks){
-                bfile.write(task);
-                bfile.newLine();
+        if (!tasks.isEmpty()) {
+            try (FileWriter file = new FileWriter("tasks.txt");BufferedWriter bfile = new BufferedWriter(file)) {
+                for (String task : tasks){
+                    bfile.write(task);
+                    bfile.newLine();
+                }
+            } catch (Exception e) {
+                //e.printStackTrace();
+                System.out.println(e.getMessage());
             }
-        } catch (Exception e) {
-            //e.printStackTrace();
-            System.out.println(e.getMessage());
+        } else {
+            System.out.println("There are no tasks to save\n");
         }
-
     }
 }

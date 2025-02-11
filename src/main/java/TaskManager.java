@@ -10,6 +10,8 @@ public class TaskManager {
     public TaskManager() {
         // Initialize tasks list
         this.tasks = new ArrayList<>();
+        this.file = createFile();
+    }
 
     public File createFile() {
         try{
@@ -19,6 +21,8 @@ public class TaskManager {
             } else {
                 return null;
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
     }

@@ -3,11 +3,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskManager {
-    private List<String> tasks; // hint: will change in iteration 3
+    private final List<String> tasks; // hint: will change in iteration 3
+    private final File tasksFile;
 
     public TaskManager() {
         // Initialize tasks list
         tasks = new ArrayList<>();
+        tasksFile = new File("tasks.csv");
+
+        if (!tasksFile.exists()) {
+            try {
+                tasksFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         this.readTasks();
     }
 
@@ -20,24 +31,24 @@ public class TaskManager {
     }
 
     public void deleteTask(String task){
-//        tasks.re
+        tasks.remove(task);
+
     }
 
     public void exit() {
         // leave for iteration 2
         this.saveTasks();
     }
-    public void readTasks(){
-        String filePath = "data.csv";
+    public void readTasks() {
         String line;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            
-            while ((line = reader.readLine()) != null) {
+        try {
+            assert this.tasksFile != null;
+            try (BufferedReader reader = new BufferedReader(new FileReader(this.tasksFile.getPath()))) {
 
-                String[] data = line.split(",");
-
-                tasks.add(data[0]);
+                while ((line = reader.readLine()) != null) {
+                    tasks.add(line);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -46,17 +57,13 @@ public class TaskManager {
 
     public void saveTasks() {
 
-        String filePath = "data.csv";
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.tasksFile.getPath()))) {
 
             for (String task : tasks) {
                 
-                writer.write(String.join(",", task));
+                writer.write(task);
                 writer.newLine();
             }
-
-            System.out.println("CSV file created successfully.");
 
         } catch (IOException e) {
             e.printStackTrace();

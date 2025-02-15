@@ -1,18 +1,26 @@
+import java.util.ArrayList;
 import java.util.List;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
 
 public class TaskManager {
     private List<String> tasks; // hint: will change in iteration 3
 
     public TaskManager() {
         // Initialize tasks list
+        this.tasks = new ArrayList<>();
+        //return this.tasks;
     }
 
     public void addTask(String task) {
-        throw new UnsupportedOperationException("Implement this method!");
+        //this.tasks = taskManager();
+        tasks.add(task);
+        //throw new UnsupportedOperationException("Implement this method!");
     }
 
     public List<String> listTasks() {
-        throw new UnsupportedOperationException("Implement this method!");
+        return tasks;
+        //throw new UnsupportedOperationException("Implement this method!");
     }
 
     public void deleteTask(String task){
@@ -20,6 +28,19 @@ public class TaskManager {
     }
 
     public void exit() {
-        // leave for iteration 2f
+      // leave for iteration 2
+        if (!tasks.isEmpty()) {
+            try (FileWriter file = new FileWriter("tasks.csv");BufferedWriter bfile = new BufferedWriter(file)) {
+                for (String task : tasks){
+                    bfile.write(task);
+                    bfile.newLine();
+                }
+            } catch (Exception e) {
+                //e.printStackTrace();
+                System.out.println(e.getMessage());
+            }
+        } else {
+            System.out.println("There are no tasks to save\n");
+        }
     }
 }

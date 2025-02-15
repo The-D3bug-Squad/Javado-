@@ -30,7 +30,7 @@ public class TaskManager {
     public void exit() {
         // leave for iteration 2
         if (!tasks.isEmpty()) {
-            try (FileWriter file = new FileWriter("tasks.txt");BufferedWriter bfile = new BufferedWriter(file)) {
+            try (FileWriter file = new FileWriter("tasks.csv");BufferedWriter bfile = new BufferedWriter(file)) {
                 for (String task : tasks){
                     bfile.write(task);
                     bfile.newLine();

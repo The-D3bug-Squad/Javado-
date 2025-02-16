@@ -1,4 +1,6 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
@@ -40,5 +42,16 @@ public class TaskManager {
 
     public void exit() {
         // leave for iteration 2
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("tasks.csv"));
+            for (String task : tasks){
+                writer.write(task);
+                writer.newLine();
+            }
+            writer.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

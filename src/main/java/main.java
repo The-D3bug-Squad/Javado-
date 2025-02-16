@@ -9,6 +9,10 @@ public class main {
         TaskManager manager = new TaskManager();
         Scanner scanner = new Scanner(System.in);
 
+//        taskManager.addTask("Buy Groceries");
+//        taskManager.addTask("Complete Assignment");
+//        taskManager.exit(); // Ensure tasks are saved to file
+
         while (true) {
             System.out.println("\n=== Task Manager ===");
             System.out.println("1. Add Task");

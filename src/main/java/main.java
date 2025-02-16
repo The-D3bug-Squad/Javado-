@@ -4,14 +4,10 @@ import java.util.Scanner;
 
 
 public class main {
-    private static final String TEST_FILE = "tasks.csv";
     public static void main(String[] args) throws IOException {
         TaskManager manager = new TaskManager();
         Scanner scanner = new Scanner(System.in);
 
-//        taskManager.addTask("Buy Groceries");
-//        taskManager.addTask("Complete Assignment");
-//        taskManager.exit(); // Ensure tasks are saved to file
 
         while (true) {
             System.out.println("\n=== Task Manager ===");

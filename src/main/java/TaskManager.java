@@ -52,7 +52,7 @@ public class TaskManager {
     }
 
     public boolean processMenuChoice(int choice) {
-        if (choice < 1 || choice >= 5) {
+        if (choice < 1 || choice > 5) {
             throw new IllegalArgumentException("Invalid menu option!");
         } else {
             return true;

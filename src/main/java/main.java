@@ -59,6 +59,7 @@ public class main {
                             String status = task.status ? "Completed" : "Not completed";
                             System.out.println(i + "." + task.title + ": " + task.description + " (" + status + ")");
                         }
+                        System.out.print("Choose an option: ");
                         int task_no = scanner.nextInt();
                         scanner.nextLine();
                         if (task_no >= 0 && task_no <tasks.size()) {
@@ -77,6 +78,7 @@ public class main {
                             String status = task.status ? "Completed" : "Not completed";
                             System.out.println(i + "." + task.title + ": " + task.description + " (" + status + ")");
                         }
+                        System.out.print("Choose an option: ");
                         int num = scanner.nextInt();
                         scanner.nextLine();
                         if (num >= 0 && num <tasks.size()) {
@@ -91,8 +93,6 @@ public class main {
                         System.out.println("Exiting......");
                         System.exit(0);
                         break;
-                    default:
-                        System.out.println("Invalid choice, please try again.");
                 }
             }
 

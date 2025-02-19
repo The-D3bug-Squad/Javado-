@@ -1,25 +1,95 @@
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class TaskManager {
-    private List<String> tasks; // hint: will change in iteration 3
+    private List<Task> tasks;
 
     public TaskManager() {
-        // Initialize tasks list
+        this.tasks = new ArrayList<>();
+        try{
+            File file = new File("tasks.txt");
+            Scanner scanner = new Scanner(file);
+            while(scanner.hasNextLine()) {
+                String[] line = scanner.nextLine().split(",");
+                Task task = new Task(line[0], line[1], Boolean.valueOf(line[2]));
+                this.tasks.add(task);
+            }
+            scanner.close();
+            file.delete();
+        }catch(FileNotFoundException e){
+            System.out.println("File not found");
+        }
     }
 
-    public void addTask(String task) {
-        throw new UnsupportedOperationException("Implement this method!");
+    public void addTask(Task task) {
+        this.tasks.add(task);
     }
 
-    public List<String> listTasks() {
-        throw new UnsupportedOperationException("Implement this method!");
+    public List<Task> listTasks(){
+        return this.tasks;
     }
 
-    public void deleteTask(String task){
-//        leave for iteration 4
+    public void markTaskAsComplete(Task task) {
+        int count = 0;
+        for (Task t : this.tasks) {
+            if (t == task) {
+                count++;
+            }
+        }
+        if (count == 1) {
+            Task updatedTask = task.setStatus();
+            this.tasks.set(this.tasks.indexOf(task), updatedTask);
+            System.out.println("Task updated!");
+        }else {
+            throw new IllegalArgumentException("Task not found!");
+        }
+    }
+
+    public boolean processMenuChoice(int choice) {
+        if (choice < 1 || choice > 5) {
+            throw new IllegalArgumentException("Invalid menu option!");
+        } else {
+            return true;
+        }
+    }
+
+    public void deleteTask(Task task){
+        int count = 0;
+        for (Task t : this.tasks) {
+            if (t == task) {
+                count++;
+            }
+        }
+        if (count == 1) {
+            if (this.tasks.remove(task)) {
+                System.out.println("Task deleted!");
+            } else {
+                System.out.println("Failed to delete task, please try again");
+            }
+        } else {
+            throw new IllegalArgumentException("Task not found!");
+        }
     }
 
     public void exit() {
-        // leave for iteration 2f
+        try{
+            FileWriter fw = new FileWriter("tasks.txt");
+            for (Task task : this.tasks) {
+                String title = task.title;
+                String description = task.description;
+                boolean status = task.status;
+                String line = title + "," + description + "," + status + "\n";
+                fw.write(line);
+            }
+            fw.close();
+        } catch (IOException e) {
+            System.out.println("Error while writing tasks");
+        }
     }
 }

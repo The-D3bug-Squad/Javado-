@@ -26,12 +26,12 @@ public class main {
                 case 1:
                     System.out.print("Enter title: ");
                     String title = scanner.nextLine();
-                    String t = title.replaceAll("\\s", "");
                     scanner.nextLine();
+                    String t = title.replaceAll("\\s", "");
                     System.out.print("Enter description: ");
                     String description = scanner.nextLine();
-                    String d = title.replaceAll("\\s", "");
                     scanner.nextLine();
+                    String d = title.replaceAll("\\s", "");
                     if (t.isEmpty() || d.isEmpty()) {
                         System.out.println("Please enter a valid title and description");
                     } else {
@@ -50,6 +50,7 @@ public class main {
                     }
                     System.out.print("Enter the number of the task to update status to complete: ");
                     int task_no = scanner.nextInt();
+                    scanner.nextLine();
                     if (task_no >= 0 && task_no <tasks.size()) {
                         Task selectedTask = tasks.get(task_no);
                         System.out.println("Updating...");
@@ -64,6 +65,7 @@ public class main {
                     }
                     System.out.print("Enter the number of the task to delete: ");
                     int num = scanner.nextInt();
+                    scanner.nextLine();
                     if (num >= 0 && num <tasks.size()) {
                         System.out.println("Deleting...");
                         manager.deleteTask(tasks.get(num));

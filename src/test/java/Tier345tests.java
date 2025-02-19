@@ -37,7 +37,6 @@ public class Tier345tests {
         Task task = new Task("Workout", "Morning run", false);
         taskManager.addTask(task);
         assertEquals(1, taskManager.listTasks().size());
-
         taskManager.deleteTask(task);
         assertTrue(taskManager.listTasks().isEmpty());
     }
@@ -67,5 +66,4 @@ public class Tier345tests {
         });
         assertEquals("Task not found!", exception.getMessage());
     }
-}
 }

@@ -23,7 +23,8 @@ public class main {
             switch (choice) {
                 case 1:
                     System.out.print("Enter task: ");
-                    String task = scanner.nextLine();
+                    Boolean isCompleted;
+                    Task task = new Task(scanner.nextLine(), scanner.nextLine(), Boolean.valueOf(scanner.nextLine()));
                     manager.addTask(task);
                     break;
                 case 2:

@@ -6,7 +6,7 @@ import java.util.List;
 import java.io.IOException;
 
 public class TaskManager {
-    private List<String> tasks; // hint: will change in iteration 3
+    private List<Task> tasks; // hint: will change in iteration 3
     public File file;
 
     public TaskManager() {
@@ -28,11 +28,11 @@ public class TaskManager {
         }
 
     }
-    public void addTask(String task) {
+    public void addTask(Task task) {
         tasks.add(task);
     }
 
-    public List<String> listTasks() {
+    public List<Task> listTasks() {
         return tasks;
     }
 
@@ -44,8 +44,8 @@ public class TaskManager {
         // leave for iteration 2
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("tasks.csv"));
-            for (String task : tasks){
-                writer.write(task);
+            for (Task task : tasks){
+                writer.write(String.valueOf(task));
                 writer.newLine();
             }
             writer.close();

@@ -36,12 +36,27 @@ public class TaskManager {
     }
 
     public void markTaskAsComplete(Task task) {
-        Task updatedTask = task.setStatus();
-        this.tasks.set(this.tasks.indexOf(task), updatedTask);
+        int count = 0;
+        for (Task t : this.tasks) {
+            if (t == task) {
+                count++;
+            }
+        }
+        if (count == 1) {
+            Task updatedTask = task.setStatus();
+            this.tasks.set(this.tasks.indexOf(task), updatedTask);
+            System.out.println("Task updated!");
+        }else {
+            throw new IllegalArgumentException("Task not found!");
+        }
     }
 
-    public void processMenuChoice(int choice) {
-
+    public boolean processMenuChoice(int choice) {
+        if (choice < 1 || choice >= 5) {
+            throw new IllegalArgumentException("Invalid menu option!");
+        } else {
+            return true;
+        }
     }
 
     public void deleteTask(Task task){

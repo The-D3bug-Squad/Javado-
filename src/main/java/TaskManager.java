@@ -1,7 +1,9 @@
+import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.BufferedWriter;
 
 
 public class TaskManager {
@@ -16,6 +18,7 @@ public class TaskManager {
 
     public File createFile(){
         File file_x = new File("tasks.csv");
+        return file_x;
     }
 
     public void addTask(String task) {
@@ -32,8 +35,13 @@ public class TaskManager {
 //        leave for iteration 4
     }
 
-    public void exit() {
+    public void exit() throws IOException {
         // leave for iteration 2
-
+        BufferedWriter writer = new BufferedWriter(new FileWriter("tasks.csv"));
+        for (String task : tasks){
+            writer.write(String.valueOf(task));
+            writer.newLine();
+        }
+        writer.close();
     }
 }

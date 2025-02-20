@@ -34,7 +34,10 @@ public class TaskManager {
 
     public void deleteTask(Task task) {
 //        leave for iteration 4
-        this.tasks.remove(task);
+        if (this.tasks.remove(task) == false )
+        {
+            throw new IllegalArgumentException("Task not found!");
+        }
     }
 
     public void markTaskAsComplete(Task task)
@@ -72,7 +75,7 @@ public class TaskManager {
             case 1, 2, 3, 4:
                 break;
             default:
-                throw new RuntimeException("Invalid menu option");
+                throw new IllegalArgumentException("Invalid menu option!");
         }
     }
 }

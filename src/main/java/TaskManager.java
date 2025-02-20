@@ -11,6 +11,11 @@ public class TaskManager {
     public TaskManager() {
         // Initialize tasks list
         tasks = new ArrayList<>();
+        file = createFile();
+    }
+
+    public File createFile(){
+        File file_x = new File("tasks.csv");
     }
 
     public void addTask(String task) {

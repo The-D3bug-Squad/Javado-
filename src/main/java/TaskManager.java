@@ -1,8 +1,12 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.io.File;
+import java.io.FileWriter;
+
 
 public class TaskManager {
     private List<String> tasks; // hint: will change in iteration 3
+    public File file;
 
     public TaskManager() {
         // Initialize tasks list
@@ -24,6 +28,7 @@ public class TaskManager {
     }
 
     public void exit() {
-        // leave for iteration 2f
+        // leave for iteration 2
+
     }
 }

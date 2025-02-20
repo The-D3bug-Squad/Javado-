@@ -18,7 +18,8 @@ public class TaskManager {
 
     public File createFile(){
         File file_x = new File("tasks.csv");
-        return file_x;
+        if (file_x.createNewFile()){
+            return file_x;
     }
 
     public void addTask(String task) {
@@ -35,13 +36,18 @@ public class TaskManager {
 //        leave for iteration 4
     }
 
-    public void exit() throws IOException {
+    public void exit() {
         // leave for iteration 2
-        BufferedWriter writer = new BufferedWriter(new FileWriter("tasks.csv"));
-        for (String task : tasks){
-            writer.write(String.valueOf(task));
-            writer.newLine();
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("tasks.csv"));
+            for (String task : tasks){
+                writer.write(String.valueOf(task));
+                writer.newLine();
+            }
+            writer.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        writer.close();
+
     }
 }

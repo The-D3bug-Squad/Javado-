@@ -17,9 +17,17 @@ public class TaskManager {
     }
 
     public File createFile(){
-        File file_x = new File("tasks.csv");
-        if (file_x.createNewFile()){
-            return file_x;
+        try{
+            File file_x = new File("tasks.csv");
+            if (file_x.createNewFile()){
+                return file_x;
+            } else {
+                return null;
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void addTask(String task) {

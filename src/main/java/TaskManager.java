@@ -28,6 +28,9 @@ public class TaskManager {
         }
 
     }
+    public void markTaskAsComplete(Task task){
+        task.isComplete = true;
+    }
     public void addTask(Task task) {
         tasks.add(task);
     }
@@ -36,8 +39,11 @@ public class TaskManager {
         return tasks;
     }
 
-    public void deleteTask(String task){
+    public void deleteTask(Task taskToDelete){
 //        leave for iteration 4
+        if (!tasks.remove((taskToDelete))){
+            throw  new IllegalArgumentException("Task not found");
+        }
     }
 
     public void exit() {

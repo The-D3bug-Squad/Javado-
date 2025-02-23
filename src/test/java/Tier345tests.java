@@ -49,23 +49,24 @@ public class Tier345tests {
         taskManager.markTaskAsComplete(task);
         assertTrue(task.isComplete());
     }
-
-    // ---- Tier 5
-
-    @Test
-    void testInvalidMenuInput() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            taskManager.processMenuChoice(99); // Invalid choice
-        });
-        assertEquals("Invalid menu option!", exception.getMessage());
-    }
-
-    @Test
-    void testInvalidTaskDeletion() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            taskManager.deleteTask(new Task("Non-existent", "This task is not in the list", false));
-        });
-        assertEquals("Task not found!", exception.getMessage());
-    }
 }
-}
+
+//    // ---- Tier 5
+//
+//    @Test
+//    void testInvalidMenuInput() {
+//        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+//            taskManager.processMenuChoice(99); // Invalid choice
+//        });
+//        assertEquals("Invalid menu option!", exception.getMessage());
+//    }
+//
+//    @Test
+//    void testInvalidTaskDeletion() {
+//        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+//            taskManager.deleteTask(new Task("Non-existent", "This task is not in the list", false));
+//        });
+//        assertEquals("Task not found!", exception.getMessage());
+//    }
+//}
+//

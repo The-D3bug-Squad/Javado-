@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 
 public class main {
@@ -23,7 +24,6 @@ public class main {
             switch (choice) {
                 case 1:
                     System.out.print("Enter task: ");
-                    Boolean isCompleted;
                     Task task = new Task(scanner.nextLine(), scanner.nextLine(), Boolean.valueOf(scanner.nextLine()));
                     manager.addTask(task);
                     break;
@@ -32,9 +32,22 @@ public class main {
                     break;
                 case 3:
                     System.out.print("Enter task to delete: ");
-                    String tas = scanner.nextLine();
-                    manager.deleteTask(tas);
-                    System.out.println("Deleting...");
+                    String taskTitle = scanner.nextLine();
+                    Task taskToDelete = null;
+
+                    for (Task taskItem : manager.listTasks()){
+                        if (taskItem.getTitle().equals(taskTitle)){
+                            taskToDelete = taskItem;
+                            break;
+                        }
+                    }
+
+                    if (taskToDelete != null){
+                        manager.deleteTask(taskToDelete);
+                        System.out.println("Deleting...");
+                    } else {
+                        System.out.println("Task not found");
+                    }
                     break;
                 case 4:
                     manager.exit();

@@ -25,3 +25,9 @@ public class Task {
 //What does the final keyword mean in java?
 //Typecasting to Java? Specifically from string to boolean
 //String Value of Method/ Boolean Value of Method
+//The method for removing an item in a Java List
+/*How to delete and item
+1. Finding the object
+2. Removing the object
+3. I might need a for loop
+* */

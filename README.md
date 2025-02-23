@@ -15,7 +15,6 @@ git remote add upstream https://github.com/(mainrepourl)
 ```
 
 ### Fetch tests 
-
 ```bash
 git fetch upstream tier[iteration number]-tests
 

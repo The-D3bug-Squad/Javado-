@@ -49,7 +49,11 @@ public class TaskManager {
     }
 
     public void deleteTask(Task task){
+        int old_len = tasks.size();
         tasks.remove(task);
+        if (old_len == tasks.size()){
+            throw new IllegalArgumentException("Task not found!");
+        }
     }
 
     public void exit() {

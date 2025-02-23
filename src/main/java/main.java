@@ -54,7 +54,7 @@ public class main {
                     System.out.println("Exiting......");
                     System.exit(0);
                 default:
-                    System.out.println("Invalid choice!");
+                    manager.processMenuChoice(choice);
             }
         }
     }

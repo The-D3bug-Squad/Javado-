@@ -42,7 +42,7 @@ public class TaskManager {
     public void deleteTask(Task taskToDelete){
 //        leave for iteration 4
         if (!tasks.remove((taskToDelete))){
-            throw  new IllegalArgumentException("Task not found");
+            throw  new IllegalArgumentException("Task not found!");
         }
     }
 
@@ -60,4 +60,9 @@ public class TaskManager {
         }
 
     }
+public void processMenuChoice(int choice) {
+    if (choice < 1 || choice > 4) {
+        throw new IllegalArgumentException("Invalid menu option!");
+    }
+}
 }
